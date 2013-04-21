@@ -1,34 +1,40 @@
-<h2>Stream</h2>
-
-<%= link_to 'New Post', new_post_path %>
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Title</th>
-    <th>Content</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
 <% @posts.each_with_index do |post, i| %>
-  <tr>
-    <td><%= post.name %></td>
-    <td><%= post.title %></td>
-    <td><%= post.content %></td>
+  <li>
     <% if i % 3 == 0 then %>
-      <td><%= image_tag post.image.url(:large) %></td>
+      <div class="figure figure-640">
+        <%= link_to post do %>
+          <figure>
+            <span class="fig-image">
+              <%= image_tag post.image.url(:large) %>
+            </span>
+          </figure>
+        <% end %>
+        <a href="#" class="btn btn-large btn-primary btn-kawaimi"><i class="icon-heart icon-white"></i> kawaimi</a>
+      </div>
     <% else %>
-      <td><%= image_tag post.image.url(:medium) %></td>
+      <% if i % 3 == 1 then %>
+        <div class="figure figure-310 first">
+          <%= link_to post do %>
+            <figure>
+              <span class="fig-image">
+                <%= image_tag post.image.url(:medium) %>
+              </span>
+            </figure>
+          <% end %>
+          <a href="#" class="btn btn-large btn-primary btn-kawaimi"><i class="icon-heart icon-white"></i> kawaimi</a>
+        </div>
+      <% else %>
+        <div class="figure figure-310">
+          <%= link_to post do %>
+            <figure>
+              <span class="fig-image">
+                <%= image_tag post.image.url(:medium) %>
+              </span>
+            </figure>
+          <% end %>
+          <a href="#" class="btn btn-large btn-primary btn-kawaimi"><i class="icon-heart icon-white"></i> kawaimi</a>
+        </div>
+      <% end %>
     <% end %>
-    <td><%= link_to 'Show', post %></td>
-    <td><%= link_to 'Edit', edit_post_path(post) %></td>
-    <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-
-  </tr>
+  </li>
 <% end %>
-</table>
-
-<br />
-
-

@@ -21,10 +21,12 @@
   </div>
   <div class="field">
     <%= f.label :content %><br />
-    <%= f.text_area :content %>
+    <%= f.text_area :content, :rows => "3" %>
   </div>
   <%= f.file_field :image %>
   <div class="actions">
-    <%= f.submit %>
+    <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+     <i class="icon-ok icon-white"></i> Save
+    <% end %>
   </div>
 <% end %>

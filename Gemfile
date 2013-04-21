@@ -48,3 +48,6 @@ gem 'jquery-rails'
 gem "paperclip", "~> 3.0"
 gem 'devise'
 gem "friendly_id", "~> 4.0.9"
+gem 'twitter-bootstrap-rails'
+gem 'therubyracer', :platform => :ruby
+gem 'less-rails', :group => :assets

@@ -1,22 +1,26 @@
-<%= link_to "KAWAIMI", root_path, :class => 'brand' %>
-<ul class="nav">
-  <% if user_signed_in? %>
-    <li>
-      <%= current_user.name %>さん /
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-    </li>
-  <% else %>
-    <li>
-      <%= link_to "ログイン", new_user_session_path %>
-    </li>
-  <% end %>
-  <% if user_signed_in? %>
-    <li>
-      <%= link_to "ユーザ情報の編集", edit_user_registration_path %>
-    </li>
-  <% else %>
-    <li>
-      <%= link_to "新規登録", new_user_registration_path %>
-    </li>
-  <% end %>
-</ul>
+<div id="header-new">
+  <div class="inner">
+    <div class="left">
+      <h1 class="logo">
+        <%= link_to "kawaimi", root_path, :class => 'brand' %>
+      </h1>
+      <%= link_to 'Upload', new_post_path, :class => 'upload btn btn-success' %>
+    </div>
+    <div class="right">
+      <% if user_signed_in? %>
+        <ul class="navl">
+          <li class="dropdown">
+            <%=link_to current_user.name, current_user, :class => 'dropdown-toggle disabled', :data => {:toggle => 'dropdown'} %>
+            <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dLabel">
+              <li><%= link_to "Setting", edit_user_registration_path %></li>
+              <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+            </ul>
+          </li>
+        </ul>
+      <% else %>
+        <li class="nav-button"><%= link_to "Login", new_user_session_path, :class => 'btn' %></li>
+        <li class="nav-button"><%= link_to "Sign up", new_user_registration_path, :class => 'btn btn-primary' %></li>
+      <% end %>
+    </div>
+  </div>
+</div>
