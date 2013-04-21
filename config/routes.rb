@@ -1,11 +1,15 @@
 Blog::Application.routes.draw do
+  get "favorite/create"
+
   devise_for :users
 
   resources :users, :only => [:show, :index]
 
   get "home/index"
 
-  resources :posts
+  resources :posts do
+    post :favorite, to: "favorite#create"
+  end
 
 
   # The priority is based upon order of creation:

@@ -9,7 +9,9 @@
             </span>
           </figure>
         <% end %>
-        <a href="#" class="btn btn-large btn-primary btn-kawaimi"><i class="icon-heart icon-white"></i> kawaimi</a>
+        <%= link_to post_favorite_path(post), remote: true, :class => "btn btn-large btn-primary btn-kawaimi", method: :post do %>
+          <i class="icon-heart icon-white"></i> kawaimi
+        <% end %>
       </div>
     <% else %>
       <% if i % 3 == 1 then %>
@@ -21,7 +23,9 @@
               </span>
             </figure>
           <% end %>
-          <a href="#" class="btn btn-large btn-primary btn-kawaimi"><i class="icon-heart icon-white"></i> kawaimi</a>
+          <%= link_to post_favorite_path(post), remote: true, :class => "btn btn-large btn-primary btn-kawaimi", method: :post do %>
+            <i class="icon-heart icon-white"></i> kawaimi
+          <% end %>
         </div>
       <% else %>
         <div class="figure figure-310">
@@ -32,7 +36,9 @@
               </span>
             </figure>
           <% end %>
-          <a href="#" class="btn btn-large btn-primary btn-kawaimi"><i class="icon-heart icon-white"></i> kawaimi</a>
+          <%= link_to post_favorite_path(post), remote: true, :class => "btn btn-large btn-primary btn-kawaimi", method: :post do %>
+            <i class="icon-heart icon-white"></i> kawaimi
+          <% end %>
         </div>
       <% end %>
     <% end %>

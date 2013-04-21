@@ -19,6 +19,5 @@ class User < ActiveRecord::Base
   validates_format_of :name, :with => /^[0-9a-zA-Z_]{1,15}$/i
 
   # かわいみ〜
-  has_many :favoriteships, :dependent => :destroy
-  has_many :favorite_posts, :through => :favoriteships, :source => :post
+  has_many :favorites
 end
