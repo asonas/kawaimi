@@ -20,4 +20,7 @@ class User < ActiveRecord::Base
 
   # かわいみ〜
   has_many :favorites
+  def favoritable_for?(post)
+    !favorites.exists?( post_id: post.id )
+  end
 end

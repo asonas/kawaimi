@@ -269,6 +269,22 @@ a.menu:after, .dropdown-toggle:after {
         max-width: 310px;
       }
     }
+    .figure-200 {
+      margin: 0 0 20px 20px;
+      padding: 0 0 20px 0;
+      margin-left: 20px;
+      &.first {
+        margin: 0;
+      }
+      .fig-image {
+        width: 200px;
+        height: 200px;
+      }
+      width: 200px;
+      img {
+        max-width: 200px;
+      }
+    }
   }
 }
 

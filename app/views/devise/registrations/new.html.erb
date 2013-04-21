@@ -3,19 +3,26 @@
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :name %><br />
+  <h4>Join kawaimi</h4>
+  <div style="color: #888;">Discover "kawaii", collect the things you love. Sign up today and start curate your own "kawaimi".</div><br />
+
+  <div><%= f.label :name %>
   <%= f.text_field :name, :autofocus => true %></div>
 
-  <div><%= f.label :email %><br />
+  <div><%= f.label :email %>
   <%= f.email_field :email %></div>
 
-  <div><%= f.label :password %><br />
+  <div><%= f.label :password %>
   <%= f.password_field :password %></div>
 
-  <div><%= f.label :password_confirmation %><br />
+  <div><%= f.label :password_confirmation %>
   <%= f.password_field :password_confirmation %></div>
 
-  <div><%= f.submit "Sign up" %></div>
+  <div>
+    <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+      <i class="icon-ok icon-white"></i> Sign up
+    <% end %>
+  </div>
 <% end %>
 
 <%= render "devise/shared/links" %>

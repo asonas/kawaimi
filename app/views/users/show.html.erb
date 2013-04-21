@@ -1,5 +1,33 @@
-<h2><%= @user.name %></h2>
+<h3 align=""><%= @user.name %>'s kawaimi</h3>
+<br />
 
-<%- @favorites.each do |favorite| %>
-  <%= image_tag favorite.post.image.url(:thumb) %>
+<%- @favorites.each_with_index do |favorite, i| %>
+  <li>
+    <% if i % 3 == 0 then %>
+      <div class="figure figure-200 first">
+    <% else %>
+      <div class="figure figure-200">
+    <% end %>
+        <%= link_to favorite.post do %>
+          <figure>
+            <span class="fig-image">
+              <%= image_tag favorite.post.image.url(:thumb) %>
+            </span>
+          </figure>
+        <% end %>
+        <% if user_signed_in? %>
+          <% if current_user.favoritable_for?(favorite.post) %>
+            <%= link_to post_favorite_path(post), remote: true, :class => "btn btn-large btn-primary btn-kawaimi", method: :post do %>
+              <i class="icon-heart icon-white"></i> kawaimi
+            <% end %>
+          <% else %>
+            <button class="btn btn-large btn-success btn-kawaimi"><i class="icon-ok icon-white"></i> kawaimi'd</button>
+          <% end %>
+        <% else %>
+          <%= link_to new_user_registration_path, :class => "btn btn-large btn-primary btn-kawaimi" do %>
+            <i class="icon-heart icon-white"></i> kawaimi
+          <% end %>
+        <% end %>
+      </div>
+  </li>
 <% end %>
