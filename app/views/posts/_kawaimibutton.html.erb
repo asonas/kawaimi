@@ -1,0 +1,13 @@
+<% if user_signed_in? %>
+  <% if current_user.favoritable_for?(kawaimibutton) %>
+    <%= link_to post_favorite_path(kawaimibutton), remote: true, :class => "btn btn-large btn-primary btn-kawaimi", method: :post do %>
+      <i class="icon-heart icon-white"></i> kawaimi
+    <% end %>
+  <% else %>
+    <button class="btn btn-large btn-success btn-kawaimi"><i class="icon-ok icon-white"></i> kawaimi'd</button>
+  <% end %>
+<% else %>
+  <%= link_to new_user_registration_path, :class => "btn btn-large btn-primary btn-kawaimi" do %>
+    <i class="icon-heart icon-white"></i> kawaimi
+  <% end %>
+<% end %>

@@ -1,7 +1,7 @@
 <h3 align=""><%= @user.name %>'s kawaimi</h3>
 <br />
 
-<%- @favorites.each_with_index do |favorite, i| %>
+<%- @favorites.latest.each_with_index do |favorite, i| %>
   <li>
     <% if i % 3 == 0 then %>
       <div class="figure figure-200 first">

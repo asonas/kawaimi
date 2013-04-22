@@ -2,7 +2,7 @@
   <h2>Welcome to kawaimi!</h2>
   <p style="color: #888; font-size: 18px;">Discover "kawaii", collect the things you love. Sign up today and start curate your own "kawaimi".</p><br /><br />
 <% end %>
-<% @posts.each_with_index do |post, i| %>
+<% @posts.latest.each_with_index do |post, i| %>
   <li>
     <% if i % 3 == 0 then %>
       <div class="figure figure-640">
@@ -13,19 +13,7 @@
             </span>
           </figure>
         <% end %>
-        <% if user_signed_in? %>
-          <% if current_user.favoritable_for?(post) %>
-            <%= link_to post_favorite_path(post), remote: true, :class => "btn btn-large btn-primary btn-kawaimi", method: :post do %>
-              <i class="icon-heart icon-white"></i> kawaimi
-            <% end %>
-          <% else %>
-            <button class="btn btn-large btn-success btn-kawaimi"><i class="icon-ok icon-white"></i> kawaimi'd</button>
-          <% end %>
-        <% else %>
-          <%= link_to new_user_registration_path, :class => "btn btn-large btn-primary btn-kawaimi" do %>
-            <i class="icon-heart icon-white"></i> kawaimi
-          <% end %>
-        <% end %>
+        <%= render :partial => "kawaimibutton", :object => post %>
       </div>
     <% else %>
       <% if i % 3 == 1 then %>
@@ -37,19 +25,7 @@
               </span>
             </figure>
           <% end %>
-          <% if user_signed_in? %>
-            <% if current_user.favoritable_for?(post) %>
-              <%= link_to post_favorite_path(post), remote: true, :class => "btn btn-large btn-primary btn-kawaimi", method: :post do %>
-                <i class="icon-heart icon-white"></i> kawaimi
-              <% end %>
-            <% else %>
-              <button class="btn btn-large btn-success btn-kawaimi"><i class="icon-ok icon-white"></i> kawaimi'd</button>
-            <% end %>
-          <% else %>
-            <%= link_to new_user_registration_path, :class => "btn btn-large btn-primary btn-kawaimi" do %>
-              <i class="icon-heart icon-white"></i> kawaimi
-            <% end %>
-          <% end %>
+          <%= render :partial => "kawaimibutton", :object => post %>
         </div>
       <% else %>
         <div class="figure figure-310">
@@ -60,19 +36,7 @@
               </span>
             </figure>
           <% end %>
-          <% if user_signed_in? %>
-            <% if current_user.favoritable_for?(post) %>
-              <%= link_to post_favorite_path(post), remote: true, :class => "btn btn-large btn-primary btn-kawaimi", method: :post do %>
-                <i class="icon-heart icon-white"></i> kawaimi
-              <% end %>
-            <% else %>
-              <button class="btn btn-large btn-success btn-kawaimi"><i class="icon-ok icon-white"></i> kawaimi'd</button>
-            <% end %>
-          <% else %>
-            <%= link_to new_user_registration_path, :class => "btn btn-large btn-primary btn-kawaimi" do %>
-              <i class="icon-heart icon-white"></i> kawaimi
-            <% end %>
-          <% end %>
+          <%= render :partial => "kawaimibutton", :object => post %>
         </div>
       <% end %>
     <% end %>
