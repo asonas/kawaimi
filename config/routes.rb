@@ -1,6 +1,4 @@
 Blog::Application.routes.draw do
-  get "favorite/create"
-
   devise_for :users
 
   resources :users, :only => [:show, :index]
