@@ -3,8 +3,6 @@ Blog::Application.routes.draw do
 
   resources :users, :only => [:show, :index]
 
-  get "home/index"
-
   resources :posts do
     resources :favorites, :only => [:create]
   end
