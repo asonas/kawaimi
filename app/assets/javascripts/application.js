@@ -14,3 +14,10 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require_tree .
+
+$(function() {
+  $(".btn-kawaimi").on("ajax:success", function(event, response) {
+    // html = $(response.html);
+    $(this).replaceWith(response.html);
+  });
+});
