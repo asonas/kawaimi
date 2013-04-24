@@ -17,7 +17,6 @@
 
 $(function() {
   $(".btn-kawaimi").on("ajax:success", function(event, response) {
-    // html = $(response.html);
     $(this).replaceWith(response.html);
   });
 });
