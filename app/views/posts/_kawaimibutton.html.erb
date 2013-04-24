@@ -1,6 +1,6 @@
 <% if user_signed_in? %>
   <% if current_user.favoritable_for?(kawaimibutton) %>
-    <%= link_to post_favorite_path(kawaimibutton), remote: true, :class => "btn btn-large btn-primary btn-kawaimi", method: :post do %>
+    <%= link_to post_favorite_path(kawaimibutton), remote: true, :class => "btn btn-large btn-primary btn-kawaimi", :data => {:disable_with => "Sending..."}, method: :post do %>
       <i class="icon-heart icon-white"></i> kawaimi
     <% end %>
   <% else %>
