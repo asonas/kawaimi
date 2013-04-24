@@ -3,30 +3,31 @@ source "https://rubygems.org"
 
 gem "rails", "3.2.13"
 
-gem "sqlite3", :group => [:development, :test]
-group :production do
-  gem "pg"
-end
-
-gem "awesome_print"
-gem "sextant"
+gem "jquery-rails"
+gem "twitter-bootstrap-rails"
+gem "devise"
+gem "paperclip", "~> 3.0"
+gem "friendly_id", "~> 4.0.9"
+gem "therubyracer", :platform => :ruby
 
 group :assets do
   gem "sass-rails",   "~> 3.2.3"
   gem "coffee-rails", "~> 3.2.1"
+  gem "less-rails"
   gem "uglifier", ">= 1.0.3"
 end
 
 group :development do
   gem "better_errors"
   gem "binding_of_caller"
+  gem "awesome_print"
+  gem "sextant"
 end
 
-gem "jquery-rails"
+group :development, :test do
+  gem "sqlite3"
+end
 
-gem "paperclip", "~> 3.0"
-gem "devise"
-gem "friendly_id", "~> 4.0.9"
-gem "twitter-bootstrap-rails"
-gem "therubyracer", :platform => :ruby
-gem "less-rails", :group => :assets
+group :production do
+  gem "pg"
+end
