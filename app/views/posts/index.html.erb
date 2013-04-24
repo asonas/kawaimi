@@ -13,7 +13,7 @@
             </span>
           </figure>
         <% end %>
-        <%= render :partial => "kawaimibutton", :object => post %>
+        <%= render :partial => "kawaimibutton", :as => :post, :object => post %>
       </div>
     <% else %>
       <% if i % 3 == 1 then %>
@@ -25,7 +25,7 @@
               </span>
             </figure>
           <% end %>
-          <%= render :partial => "kawaimibutton", :object => post %>
+          <%= render :partial => "kawaimibutton", :as => :post, :object => post %>
         </div>
       <% else %>
         <div class="figure figure-310">
@@ -36,7 +36,7 @@
               </span>
             </figure>
           <% end %>
-          <%= render :partial => "kawaimibutton", :object => post %>
+          <%= render :partial => "kawaimibutton", :as => :post, :object => post %>
         </div>
       <% end %>
     <% end %>
